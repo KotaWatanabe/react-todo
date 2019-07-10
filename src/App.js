@@ -15,6 +15,15 @@ class App extends Component {
     }
   }
 
+  addNote=(note)=>{
+    const previousNotes = this.state.notes;
+    previousNotes.push({ id: previousNotes.length + 1, noteContent: note });
+    this.setState({
+      notes: previousNotes
+    })
+    
+  }
+
   render(){
     return (
       <div className="notesWrapper">
@@ -32,7 +41,7 @@ class App extends Component {
           
         </div>
         <div className="notesFooter">
-          <NoteForm />
+          <NoteForm addNote={this.addNote}/>
         </div>
       </div>
     );

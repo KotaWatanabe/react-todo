@@ -3,15 +3,16 @@ import logo from './logo.svg';
 import Note from './Note/Note';
 import NoteForm from './NoteForm/NoteForm'
 import './App.css';
-
+import { DB_CONFIG } from './Config/Config';
+import firebase from 'firebase/app'
 class App extends Component {
   constructor(props){
     super(props);
+
+    this.app = firebase.initilalizeApp(DB_CONFIG);
+    this.db = this.app.database().ref().child('notes');
     this.state ={
-      notes: [
-        { id: 1, noteContent: "Note 1 here!" },
-        { id: 2, noteContent: "Note 2 here!" },
-      ],
+      notes: [],
     }
   }
 

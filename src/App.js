@@ -18,7 +18,7 @@ class App extends Component {
   }
 
   componentWillMount(){
-    const previousNotes = this.state.note;
+    const previousNotes = this.state.notes;
 
     this.database.on('child_added', snap => {
       previousNotes.push({
